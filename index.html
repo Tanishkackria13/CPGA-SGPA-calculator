@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CGPA/SGPA Calculator</title>
+</head>
+<body class="bg-gray-100">
+    <h1 class="text-center text-3xl font-bold mt-6">CGPA/SGPA Calculator</h1>
+    <div class="flex min-h-screen justify-center items-center">
+        <!-- SGPA Calculator -->
+        <div class="flex-1 bg-white p-8 rounded-lg shadow-lg">
+            <p class="text-center font-extrabold">SG CALCULATOR</p>
+            <form id="sgpaForm" class="space-y-6">
+                <div id="sgpaInputs" class="space-y-4">
+                    <div class="flex space-x-4">
+                        <div class="flex-1">
+                            <p class="font-semibold mb-2">Grades</p>
+                            <input type="text" class="sg_grade w-full p-2 mb-2 border rounded" placeholder="Grade of subject (eg A+,A,B+,B,C+,C,D,F)" />
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold mb-2">Credits</p>
+                            <input type="number" class="sg_credit w-full p-2 mb-2 border rounded" placeholder="Credit of subject" />
+                        </div>
+                        <div class="flex items-center">
+                            <button type="button" class="remove-button bg-red-500 text-white p-2 rounded">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" onclick="addSGPAInput()" class="w-full bg-green-500 text-white p-2 rounded mt-4">Add More Subjects</button>
+                <button type="button" onclick="calculateSGPA()" class="w-full bg-blue-500 text-white p-2 rounded mt-2">Calculate</button>
+            </form>
+            <div id="sgpaResult" class="mt-6 text-center text-xl font-semibold"></div>
+        </div>
+        <!-- CGPA Calculator -->
+        <div class="flex-1 bg-white p-8 rounded-lg shadow-lg">
+            <p class="text-center font-extrabold">CG CALCULATOR</p>
+            <form id="cgpaForm" class="space-y-6">
+                <div class="flex flex-col space-y-4">
+                    <div class="flex-1">
+                        <p class="font-semibold mb-2">CGPA Till Last Sem</p>
+                        <input type="number" id="prev_cgpa" class="w-full p-2 mb-2 border rounded" placeholder="CGPA till last semester" />
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold mb-2">Total Credits Till Last Sem</p>
+                        <input type="number" id="prev_credits" class="w-full p-2 mb-2 border rounded" placeholder="Total credits till last semester" />
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold mb-2">SGPA This Sem</p>
+                        <input type="number" id="curr_sgpa" class="w-full p-2 mb-2 border rounded" placeholder="SGPA this semester" />
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold mb-2">Total Credits This Sem</p>
+                        <input type="number" id="curr_credits" class="w-full p-2 mb-2 border rounded" placeholder="Total credits this semester" />
+                    </div>
+                </div>
+                <button type="button" onclick="calculateCGPA()" class="w-full bg-blue-500 text-white p-2 rounded">Calculate</button>
+            </form>
+            <div id="cgpaResult" class="mt-6 text-center text-xl font-semibold"></div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
